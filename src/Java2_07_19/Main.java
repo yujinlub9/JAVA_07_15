@@ -55,12 +55,43 @@ public class Main {
 					System.out.printf("%d   |    %s\n", article.id, article.title);
 				}
 
-			} else {
+			} 
+				
+			else if (command.startsWith("article detail ")) {
+			String[] commandBits = command.split(" ");
+					
+			int id = Integer.parseInt(commandBits[2]);
+			
+			boolean foundArticle = false;
+			
+			for(int i = 0; i < articles.size(); i++) {
+				Article article = articles.get(i);
+				if (article.id == id) {
+					foundArticle = true;
+					break;
+				}
+				
+				
+			}
+			
+			if (foundArticle == false) {
+				System.out.printf("%d번 게시물은 존재하지 않습니다.\n", id);
+				continue;
+			
+			}
+			
+			
+				System.out.printf("%d번 게시물은 존재하지 않습니다.\n", id);
+			
+			}
+			
+		
+			else {
 				System.out.printf("%s(은)는 존재하지 않는 명령어 입니다.\n", command);
 			}
 		}
-
-		sc.close();
+	
+				sc.close();
 
 		System.out.println("== 프로그램 끝 ==");
 	}
